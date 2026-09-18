@@ -1,0 +1,8 @@
+﻿*.log
+*.tmp
+.DS_Store
+Thumbs.db
+*.pdb
+*.exp
+*.lib
+*.obj
