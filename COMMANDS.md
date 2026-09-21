@@ -1,4 +1,4 @@
-﻿# Справочник команд SCUM-RCON (Command Reference)
+# Справочник команд SCUM-RCON (Command Reference)
 
 Полный список команд, поддерживаемых сервером **SCUM-RCON**, с примерами использования и описанием формата вывода.
 
@@ -58,6 +58,24 @@
   ID 20164 | BPC_Laika_ES_C | name: Laika | (125400, -34200, 1500) | owner: Domo (db id 4)
   ID 250005 | BPC_Cruiser_ES_C | name: Cruiser | (130100, -32800, 1450) | owner: Domo (db id 4)
   ID 300122 | BPC_Wolfswagen_ES_C | name: Wolf | (-45000, 89000, 2100) | owner: unowned (db id 0)
+  ```
+
+---
+
+### `BringVehicle <VehicleId> [PlayerName | SteamID]`
+Доставка любого автомобиля или мотоцикла сервера прямо к игроку (на расстояние ~6.5м на уровне земли) с одновременным сохранением новых координат в `SCUM.db`.
+* **Синтаксис:** `BringVehicle <VehicleId> [PlayerName|SteamID]`
+* **Поведение:**
+  * **Если автомобиль загружен в памяти:** перемещается мгновенно напрямую к игроку. **Игрок остаётся на месте (0 перемещений).**
+  * **Если автомобиль выгружен (Dormant):** неблокирующий асинхронный стейт-машин пробуждает сектор автомобиля и после стриминга в память мгновенно переносит его к игроку, возвращая игрока в исходную точку.
+* **Пример:** `BringVehicle 20164 Domo`
+* **Пример ответа (Live):**
+  ```text
+  BringVehicle: brought BPC_Laika (ID 20164) to Domo (76561198156375337) at {55756.7, 383588.8, 49196.1} [actor teleported live in world]
+  ```
+* **Пример ответа (Dormant -> Woken):**
+  ```text
+  BringVehicle: brought BPC_Laika (ID 20164) to Domo (76561198156375337) at {55756.7, 383588.8, 49196.1} [woken and brought live in 1.1s]
   ```
 
 ---
