@@ -1,6 +1,6 @@
 # SCUM-RCON (Dedicated Server RCON Mod)
 
-[![Release](https://img.shields.io/badge/Release-v1.1.0-brightgreen.svg)]()
+[![Release](https://img.shields.io/badge/Release-v1.1.2-brightgreen.svg)]()
 [![SCUM Version](https://img.shields.io/badge/SCUM-1.3.x%20Compatible-orange.svg)]()
 [![Platform](https://img.shields.io/badge/Platform-Windows%20Win64-blue.svg)]()
 [![Protocol](https://img.shields.io/badge/Protocol-Valve%20Source%20RCON-green.svg)]()
@@ -179,9 +179,20 @@ import struct
 
 ---
 
-## 📦 Что нового в v1.1.0 (Changelog)
+## 📦 Что нового в версиях (Changelog)
 
-* **Новая команда `BringVehicle <VehicleId> [PlayerName|SteamID]`**:
+### v1.1.2
+* **Полная SEH-защита движка (Crash Immunity)**:
+  * Все точки вызова `ProcessEvent` (`dispatch_chat_pipeline`, `call_ufunction`, `SendChat`, `BringVehicle`) обёрнуты в низкоуровневые SEH-блоки (`__try / __except`).
+  * Предотвращены падения сервера при массовом/быстром спавне предметов и оружия (`SpawnItem Weapon_MP5 1`), поврежденных слотах инвентаря или сбоях `memcpy` в родном коде SCUM.
+  * При возникновении исключения в движке SCUM мод корректно перехватывает сбой, очищает буферы и возвращает понятную ошибку в RCON, сохраняя работу сервера.
+
+### v1.1.1
+* **Стабилизация `ListPlayers`**:
+  * Добавлена валидация 17-значного SteamID и синхронизация имён из `SCUM.db` во избежание «скачущего» списка игроков.
+  * Устранена проблема концевых нуль-терминаторов (`\0`) в RCON-ответах.
+
+### v1.1.0
   * **Двухрежимный алгоритм доставки**:
     * **Live (в памяти)**: мгновенная прямая телепортация авто к игроку на 6.5м вперёд. Игрок остаётся на месте, **0 перемещений**.
     * **Dormant (спящее)**: запуск неблокирующего асинхронного стейт-машина на игровом потоке (`GameThread`) — кратковременная прогрузка сектора, авто-захват появившегося актора в памяти, перенос к исходной точке игрока и синхронизация в `SCUM.db`.
