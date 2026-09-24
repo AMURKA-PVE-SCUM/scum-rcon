@@ -1,4 +1,4 @@
-﻿*.log
+*.log
 *.tmp
 .DS_Store
 Thumbs.db
@@ -6,3 +6,9 @@ Thumbs.db
 *.exp
 *.lib
 *.obj
+build/
+src/
+UE4SSStubs/
+build.ps1
+__pycache__/
+*.py

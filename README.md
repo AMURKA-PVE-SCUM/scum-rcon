@@ -1,9 +1,15 @@
 # SCUM-RCON (Dedicated Server RCON Mod)
 
-[![Release](https://img.shields.io/badge/Release-v1.1.2-brightgreen.svg)]()
+[![Release](https://img.shields.io/badge/Release-v1.1.3--beta-orange.svg)]()
+[![Status](https://img.shields.io/badge/Status-BETA%20%2F%20Experimental-yellow.svg)]()
 [![SCUM Version](https://img.shields.io/badge/SCUM-1.3.x%20Compatible-orange.svg)]()
 [![Platform](https://img.shields.io/badge/Platform-Windows%20Win64-blue.svg)]()
 [![Protocol](https://img.shields.io/badge/Protocol-Valve%20Source%20RCON-green.svg)]()
+
+> [!WARNING]
+> **ВНИМАНИЕ: ЭКСПЕРИМЕНТАЛЬНАЯ BETA-ВЕРСИЯ!**  
+> Данная сборка находится в стадии активного тестирования. Возможна нестабильная работа и падения сервера при непредвиденных нагрузках и сценариях.  
+> **Обязательно делайте регулярные резервные копии `SCUM.db` и сохранений сервера!**
 
 **SCUM-RCON** — серверный мод на базе UE4SS для выделенных серверов **SCUM**, реализующий полноценный **Source RCON** сервер.
 
@@ -180,6 +186,13 @@ import struct
 ---
 
 ## 📦 Что нового в версиях (Changelog)
+
+### v1.1.3 (BETA)
+> ⚠️ **Внимание: тестовая бета-сборка! Возможны падения сервера и непредвиденное поведение при специфических сценариях. Тестируйте с осторожностью.**
+* **Экспериментальное устранение сбоя FMallocBinned2 (Heap Corruption Fix)**:
+  * Реализован RAII-класс `ScopedParams` для корректной аллокации и безопасного уничтожения строк `FString` через деструктор перед освобождением буфера параметров в `dispatch_chat_pipeline`, `dispatch_sendchat`, `controller_steam_id` и др.
+  * Устранены глобальные буферы и несоответствие аллокаторов CRT/UE4SS vs движок Unreal Engine при вызовах `ProcessEvent`.
+  * Добавлена проверка валидности свойства `Player` (`UNetConnection`) у контроллеров: предотвращены вылеты сервера при обращении к контроллерам игроков, покидающих сервер.
 
 ### v1.1.2
 * **Полная SEH-защита движка (Crash Immunity)**:
