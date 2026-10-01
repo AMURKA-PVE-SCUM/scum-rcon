@@ -166,9 +166,8 @@ import struct
 ## 📋 Основные команды (Command Reference)
 
 | Команда | Описание |
-|---|---|
-| `UpgradeBase <Player \| SteamID> [Tier] [Delay]` | Асинхронное улучшение базы игрока (+1 уровень или до Wood/Metal/Brick/Concrete) с защитой от фризов. |
-| `UpgradeBaseRadius <Radius> [Player] [Tier]` | Улучшение всех модульных элементов базы в радиусе вокруг игрока. |
+| `UpgradeBase <Player \| SteamID> [Delay]` | Полный асинхронный апгрейд базы игрока до максимального уровня (бетон) с защитой от фризов. |
+| `UpgradeBaseRadius <Radius> [Player] [Delay]` | Полный апгрейд всех модульных элементов базы в радиусе вокруг игрока. |
 | `UpgradeBaseStatus` | Текущий статус процесса улучшения базы (прогресс, процент, оставшееся время). |
 | `UpgradeBaseStop` / `CancelUpgradeBase` | Безопасная отмена текущего процесса апгрейда построек. |
 | `ListPlayers` | Список активных игроков онлайн (SteamID, имена, пинг). |

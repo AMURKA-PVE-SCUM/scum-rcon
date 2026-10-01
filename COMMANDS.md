@@ -24,48 +24,43 @@
 
 ## 1. 🏗️ Система улучшения баз (Base Upgrade) — NEW
 
-Асинхронный движок пакетного улучшения элементов базы без зависаний сервера. Мод сканирует модульные постройки в `SCUM.db`, определяет текущий уровень материалов и последовательно прокачивает элементы с настраиваемой задержкой.
+Асинхронный движок пакетного улучшения элементов базы без зависаний сервера. 
 
-### Уровни материалов (Tiers):
-* `Step` (или `+1`) — улучшить каждый элемент базы ровно на 1 уровень выше текущего.
-* `Wood` (Уровень 1) — улучшение ветвей/каркасов до дерева.
-* `Metal` (Уровень 2) — улучшение до листового металла.
-* `Brick` (Уровень 3) — улучшение до кирпича.
-* `Concrete` (или `Cement`, Уровень 4) — улучшение до максимального бетонного уровня.
+> ⚠️ **Важно:**  
+> В игре SCUM поддерживается **ТОЛЬКО ПОЛНЫЙ АПГРЕЙД** сразу до максимального уровня (Бетон / Concrete). Поэтапное улучшение (+1 уровень или до промежуточных материалов) движком SCUM не предусмотрено. Все постройки улучшаются сразу в максимальный тир.
 
 ---
 
 ### `UpgradeBase`
-Запускает процесс улучшения построек, принадлежащих указанному игроку (по флагу базы или ближайшей базе).
+Запускает полный апгрейд построек базы игрока сразу до максимального уровня (бетон).
 * **Синтаксис:**
   ```text
-  UpgradeBase <PlayerName | SteamID> [TargetTier] [DelayMs]
+  UpgradeBase <PlayerName | SteamID> [DelayMs]
   ```
-  * `TargetTier` (по умолчанию: `Concrete`): `Step`, `+1`, `Wood`, `Metal`, `Brick`, `Concrete`.
   * `DelayMs` (по умолчанию: `300`): задержка между обработкой элементов в миллисекундах для исключения фризов сервера.
 * **Примеры:**
   ```text
-  UpgradeBase 76561198156375337 Concrete 250
-  UpgradeBase Domo Step
-  UpgradeBase "Ivan Ivanov" Metal 300
+  UpgradeBase 76561198156375337
+  UpgradeBase Domo 250
+  UpgradeBase "Ivan Ivanov" 300
   ```
 * **Ответ сервера:**
   ```text
-  [BaseUpgrade] Started progressive upgrade of Domo's base to Concrete (250ms/elem). Use 'UpgradeBaseStatus' to track.
+  [BaseUpgrade] Started full upgrade of Domo's base to Concrete (250ms/elem). Use 'UpgradeBaseStatus' to track.
   ```
 
 ---
 
 ### `UpgradeBaseRadius`
-Запускает улучшение всех модульных элементов построек в указанном радиусе (в метрах) вокруг игрока или заданной точки.
+Запускает полный апгрейд всех модульных элементов построек в указанном радиусе (в метрах) вокруг игрока до максимального уровня.
 * **Синтаксис:**
   ```text
-  UpgradeBaseRadius <RadiusMeters> [PlayerName | SteamID] [TargetTier] [DelayMs]
+  UpgradeBaseRadius <RadiusMeters> [PlayerName | SteamID] [DelayMs]
   ```
 * **Примеры:**
   ```text
-  UpgradeBaseRadius 50 Domo Concrete 200
-  UpgradeBaseRadius 30 76561198156375337 Step
+  UpgradeBaseRadius 50 Domo 200
+  UpgradeBaseRadius 30 76561198156375337
   ```
 
 ---
