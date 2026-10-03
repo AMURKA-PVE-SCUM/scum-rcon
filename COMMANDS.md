@@ -40,13 +40,13 @@
   * `DelayMs` (по умолчанию: `300`): задержка между обработкой элементов в миллисекундах для исключения фризов сервера.
 * **Примеры:**
   ```text
-  UpgradeBase 76561198156375337
-  UpgradeBase Domo 250
+  UpgradeBase 76561198000000000
+  UpgradeBase Survivor 250
   UpgradeBase "Ivan Ivanov" 300
   ```
 * **Ответ сервера:**
   ```text
-  [BaseUpgrade] Started full upgrade of Domo's base to Concrete (250ms/elem). Use 'UpgradeBaseStatus' to track.
+  [BaseUpgrade] Started full upgrade of Survivor's base to Concrete (250ms/elem). Use 'UpgradeBaseStatus' to track.
   ```
 
 ---
@@ -59,8 +59,8 @@
   ```
 * **Примеры:**
   ```text
-  UpgradeBaseRadius 50 Domo 200
-  UpgradeBaseRadius 30 76561198156375337
+  UpgradeBaseRadius 50 Survivor 200
+  UpgradeBaseRadius 30 76561198000000000
   ```
 
 ---
@@ -95,12 +95,12 @@
   * **Автомобиль в выгруженном секторе (Dormant):** неблокирующий стейт-машин стримит сектор, спавнит авто в памяти, переносит его к игроку и сохраняет координаты.
 * **Примеры:**
   ```text
-  BringVehicle 20164 Domo
-  BringVehicle 150024 76561198156375337
+  BringVehicle 20164 Survivor
+  BringVehicle 150024 76561198000000000
   ```
 * **Ответ:**
   ```text
-  BringVehicle: brought BPC_Laika (ID 20164) to Domo (76561198156375337) at {55756.7, 383588.8, 49196.1} [actor teleported live in world]
+  BringVehicle: brought BPC_Laika (ID 20164) to Survivor (76561198000000000) at {55756.7, 383588.8, 49196.1} [actor teleported live in world]
   ```
 
 ---
@@ -114,8 +114,8 @@
   ```
 * **Пример вывода:**
   ```text
-  ID 20164 | BPC_Laika_ES_C | name: Laika | (125400, -34200, 1500) | owner: Domo (db id 4)
-  ID 250005 | BPC_Cruiser_ES_C | name: Cruiser | (130100, -32800, 1450) | owner: Domo (db id 4)
+  ID 20164 | BPC_Laika_ES_C | name: Laika | (125400, -34200, 1500) | owner: Survivor (db id 4)
+  ID 250005 | BPC_Cruiser_ES_C | name: Cruiser | (130100, -32800, 1450) | owner: Survivor (db id 4)
   ID 300122 | BPC_Wolfswagen_ES_C | name: Wolf | (-45000, 89000, 2100) | owner: unowned (db id 0)
   ```
 
@@ -131,7 +131,7 @@
 * **Примеры:**
   ```text
   SpawnVehicle BPC_Laika Location "125400 -34200 1500"
-  SpawnVehicle BPC_Dirtbike 76561198156375337
+  SpawnVehicle BPC_Dirtbike 76561198000000000
   ```
 
 ---
@@ -149,7 +149,7 @@
 * **Синтаксис:** `ListPlayers`
 * **Пример вывода:**
   ```text
-  76561198156375337 | Domo | ping: 24ms
+  76561198000000000 | Survivor | ping: 24ms
   76561198000000001 | Hunter | ping: 55ms
   ```
 
@@ -161,10 +161,10 @@
   ```text
   Whois <SteamID | PlayerName>
   ```
-* **Пример:** `Whois Domo` или `Whois 76561198156375337`
+* **Пример:** `Whois Survivor` или `Whois 76561198000000000`
 * **Пример вывода:**
   ```text
-  [WHOIS] Profile for: Domo (SteamID: 76561198156375337)
+  [WHOIS] Profile for: Survivor (SteamID: 76561198000000000)
     Status: ONLINE | Location: X=125400.12 Y=-34200.54 Z=1500.00
     Fame: 1,540
     Money: $4,500 (Wallet: $1,500 | Bank: $3,000 | Gold: 12)
@@ -182,8 +182,8 @@
 * **Синтаксис:** `ListSquads`
 * **Пример вывода:**
   ```text
-  Squad [1] "NightRaiders" | Leader: Domo (76561198156375337) | Members: 3 | Fame: 2100
-    - Domo (Leader)
+  Squad [1] "NightRaiders" | Leader: Survivor (76561198000000000) | Members: 3 | Fame: 2100
+    - Survivor (Leader)
     - Ghost (Member)
     - Hunter (Member)
   ```
@@ -195,7 +195,7 @@
 * **Синтаксис:** `ListFlags`
 * **Пример вывода:**
   ```text
-  Flag #1 | Squad: NightRaiders | Owner: Domo (76561198156375337) | Pos: (125000, -34000, 1500)
+  Flag #1 | Squad: NightRaiders | Owner: Survivor (76561198000000000) | Pos: (125000, -34000, 1500)
   ```
 
 ---
@@ -217,7 +217,7 @@
 * **Примеры:**
   ```text
   SendChat 0 "Внимание: Плановый перезапуск сервера через 15 минут!"
-  SendChat 4 "Вам начислен ежедневный бонус: $1,000" 76561198156375337
+  SendChat 4 "Вам начислен ежедневный бонус: $1,000" 76561198000000000
   ```
 
 ---
@@ -239,9 +239,9 @@
   ```
 * **Примеры:**
   ```text
-  SpawnItem Apple 5 76561198156375337
+  SpawnItem Apple 5 76561198000000000
   SpawnItem Weapon_AK47 1 100 30 Location "125400 -34200 1500"
-  SpawnItem Lockpick_Advanced_Item 3 Domo
+  SpawnItem Lockpick_Advanced_Item 3 Survivor
   ```
 
 ---
@@ -256,7 +256,7 @@
 * **Примеры:**
   ```text
   SpawnInventoryFullOf BP_WoodenChest 50 BPC_Ammo_7_62x39mm Location "125400 -34200 1500"
-  SpawnInventoryFullOf BP_MetalChest 20 BPC_Weapon_M4A1 76561198156375337
+  SpawnInventoryFullOf BP_MetalChest 20 BPC_Weapon_M4A1 76561198000000000
   ```
 
 ---
@@ -268,8 +268,8 @@
 * `ChangeFamePoints <+Amount | -Amount> [SteamID]` — **суммирует** или вычитает очки славы от текущего баланса игрока (рекомендуется для наград и голосований!).
 * **Примеры:**
   ```text
-  ChangeFamePoints +50 76561198156375337
-  SetFamePoints 1000 Domo
+  ChangeFamePoints +50 76561198000000000
+  SetFamePoints 1000 Survivor
   ```
 
 ---
@@ -283,9 +283,9 @@
   ```
 * **Примеры:**
   ```text
-  ChangeCurrencyBalance Cash +1500 76561198156375337
-  ChangeCurrencyBalance Gold +5 Domo
-  SetCurrencyBalance Cash 10000 76561198156375337
+  ChangeCurrencyBalance Cash +1500 76561198000000000
+  ChangeCurrencyBalance Gold +5 Survivor
+  SetCurrencyBalance Cash 10000 76561198000000000
   ```
 
 ---
@@ -295,22 +295,22 @@
 ### `Unstuck`
 Безопасно перемещает застрявшего персонажа игрока вверх на +1.5–2 метра без риска провалиться под текстуры.
 * **Синтаксис:** `Unstuck <PlayerName | SteamID>`
-* **Пример:** `Unstuck Domo`
-* **Ответ:** `Unstuck: successfully unstuck Domo (76561198156375337) from {1250, 450, 100} to {1250, 450, 250}`
+* **Пример:** `Unstuck Survivor`
+* **Ответ:** `Unstuck: successfully unstuck Survivor (76561198000000000) from {1250, 450, 100} to {1250, 450, 250}`
 
 ---
 
 ### `Teleport`
 Телепортирует персонажа в указанные 3D координаты.
 * **Синтаксис:** `Teleport <X> <Y> <Z> [SteamID]`
-* **Пример:** `Teleport 125400 -34200 1500 76561198156375337`
+* **Пример:** `Teleport 125400 -34200 1500 76561198000000000`
 
 ---
 
 ### `TeleportTo`
 Телепортирует одного игрока к другому игроку.
 * **Синтаксис:** `TeleportTo <PlayerName|SteamID> <TargetPlayerName|TargetSteamID>`
-* **Пример:** `TeleportTo Hunter Domo`
+* **Пример:** `TeleportTo Hunter Survivor`
 
 ---
 
@@ -319,7 +319,7 @@
 ### `Kick`
 Принудительно отключает игрока от сервера.
 * **Синтаксис:** `Kick <SteamID | PlayerName> [Reason]`
-* **Пример:** `Kick 76561198156375337 "AFK"`
+* **Пример:** `Kick 76561198000000000 "AFK"`
 
 ---
 
@@ -337,14 +337,14 @@
 ### `Silence` / `Unsilence`
 * `Silence <SteamID> [DurationMinutes]` — блокирует возможность писать в чат.
 * `Unsilence <SteamID>` — снимает мут чата.
-* **Пример:** `Silence 76561198156375337 60`
+* **Пример:** `Silence 76561198000000000 60`
 
 ---
 
 ### `SetGodMode`
 Включает или выключает режим бессмертия для персонажа.
 * **Синтаксис:** `SetGodMode [SteamID] <True | False>`
-* **Пример:** `SetGodMode 76561198156375337 True`
+* **Пример:** `SetGodMode 76561198000000000 True`
 
 ---
 
@@ -395,8 +395,8 @@
 ### `DeleteActiveQuestsForUser`
 Безопасно удаляет зависшие квесты у конкретного игрока по его SteamID, позволяя ему сразу войти на сервер без сброса персонажа.
 * **Синтаксис:** `DeleteActiveQuestsForUser <17-digit SteamID>`
-* **Пример:** `DeleteActiveQuestsForUser 76561198156375337`
-* **Ответ:** `questdb: deleted 2 active_quest row(s) for SteamID 76561198156375337`
+* **Пример:** `DeleteActiveQuestsForUser 76561198000000000`
+* **Ответ:** `questdb: deleted 2 active_quest row(s) for SteamID 76561198000000000`
 
 ---
 

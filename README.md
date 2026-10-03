@@ -124,7 +124,7 @@ mcrcon -H 127.0.0.1 -P 28015 -p YourStrongPasswordHere -t
 ```text
 > ListPlayers
 > ListSpawnedVehicles
-> Whois Domo
+> Whois Survivor
 ```
 
 ### 2. Node.js (для ботов Discord / Telegram / Веб-панелей)
@@ -139,7 +139,7 @@ async function main() {
   });
 
   // Получить досье игрока
-  const dossier = await rcon.send('Whois 76561198156375337');
+  const dossier = await rcon.send('Whois 76561198000000001');
   console.log(dossier);
 
   // Список техники с владельцами
