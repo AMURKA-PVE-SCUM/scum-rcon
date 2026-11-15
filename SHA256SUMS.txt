@@ -1,0 +1,2 @@
+fe066711b2b1a0b90de1641074c28d5c8c63cffcf507f3ba5fae20aa4ed2f9bf  main.dll
+b1a21bb0c965a9dfbca0fd249f1f9856303fab6193537c14d025e4ff2f347ccc  SCUM-RCON-Win64.zip

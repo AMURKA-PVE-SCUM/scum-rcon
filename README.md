@@ -1,6 +1,6 @@
 # SCUM-RCON (Dedicated Server RCON Mod)
 
-[![Release](https://img.shields.io/badge/Release-v1.1.3--beta-orange.svg)]()
+[![Release](https://img.shields.io/badge/Release-v1.2.4-blue.svg)](https://github.com/AMURKA-PVE-SCUM/scum-rcon/releases/tag/v1.2.4)
 [![Status](https://img.shields.io/badge/Status-BETA%20%2F%20Experimental-yellow.svg)]()
 [![SCUM Version](https://img.shields.io/badge/SCUM-1.3.x%20Compatible-orange.svg)]()
 [![Platform](https://img.shields.io/badge/Platform-Windows%20Win64-blue.svg)]()
@@ -12,6 +12,13 @@
 > **Обязательно делайте регулярные резервные копии `SCUM.db` и сохранений сервера!**
 
 **SCUM-RCON** — серверный мод на базе UE4SS для выделенных серверов **SCUM**, реализующий полноценный **Source RCON** сервер.
+
+В [v1.2.4](RELEASE_NOTES_v1.2.4.md) SQLite-запросы перенесены в фоновую очередь,
+исправлены повторная установка хуков и выбор мира при переходе с загрузочной
+карты. Для обновления существующей установки достаточно заменить `main.dll`
+и перезапустить сервер, сохранив свой `config.ini`. Полный комплект содержит
+шаблонный пароль `CHANGE_ME_BEFORE_USE`; перед первым запуском его нужно изменить.
+Контрольные суммы файлов опубликованы в `SHA256SUMS.txt`.
 
 Позволяет удалённо выполнять любые административные и кастомные команды с любого стандартного RCON-клиента, консоли или стороннего бота без необходимости нахождения администратора в игре.
 
